@@ -2,10 +2,7 @@ import { Card } from "@/presentation/components/Card";
 import { ItemList } from "@/presentation/components/ItemList";
 import { ScreenLayout } from "@/presentation/components/ScreenLayout";
 import { useMotorcycles } from "@/presentation/hooks/useMotorcycles";
-import { globalStyles } from "@/presentation/styles/globa-styles";
-import { Stack } from "expo-router";
-import { View, FlatList } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { FlatList } from "react-native";
 
 const HomeScreen = () => {
   const { motorcycles, loading, error } = useMotorcycles();

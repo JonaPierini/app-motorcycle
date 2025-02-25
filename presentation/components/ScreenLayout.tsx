@@ -8,7 +8,13 @@ type ScreenLayoutProps = {
 export const ScreenLayout = ({ children }: ScreenLayoutProps) => {
   const insets = useSafeAreaInsets();
   return (
-    <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
+    <View
+      style={{
+        paddingTop: insets.top,
+        paddingBottom: insets.bottom,
+        paddingHorizontal: 20,
+      }}
+    >
       {children}
     </View>
   );
