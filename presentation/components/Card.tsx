@@ -1,14 +1,19 @@
 import { PropsWithChildren } from "react";
-import { StyleProp, StyleSheet, ViewStyle } from "react-native";
+import { Pressable, StyleProp, StyleSheet, ViewStyle } from "react-native";
 import { View } from "react-native";
 
 interface Props extends PropsWithChildren {
   style?: StyleProp<ViewStyle>;
   height?: number;
+  onPress?: () => void;
 }
 
-export const Card = ({ style, children, height }: Props) => {
-  return <View style={[styles.mainView, style, { height }]}>{children}</View>;
+export const Card = ({ style, children, height, onPress }: Props) => {
+  return (
+    <Pressable onPress={onPress}>
+      <View style={[styles.mainView, style, { height }]}>{children}</View>
+    </Pressable>
+  );
 };
 
 export interface ThemeColors {

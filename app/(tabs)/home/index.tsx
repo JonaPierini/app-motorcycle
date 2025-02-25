@@ -2,10 +2,29 @@ import { Card } from "@/presentation/components/Card";
 import { ItemList } from "@/presentation/components/ItemList";
 import { ScreenLayout } from "@/presentation/components/ScreenLayout";
 import { useMotorcycles } from "@/presentation/hooks/useMotorcycles";
-import { FlatList } from "react-native";
+import { globalStyles } from "@/presentation/styles/globa-styles";
+import { useRouter } from "expo-router";
+import { ActivityIndicator, FlatList, Text, View } from "react-native";
 
 const HomeScreen = () => {
   const { motorcycles, loading, error } = useMotorcycles();
+  const router = useRouter();
+
+  if (loading) {
+    return (
+      <View style={globalStyles.container}>
+        <ActivityIndicator size="large" color="yellow" />
+      </View>
+    );
+  }
+
+  if (error) {
+    return (
+      <View style={globalStyles.container}>
+        <Text>Error al cargar los detalles</Text>;
+      </View>
+    );
+  }
 
   return (
     <ScreenLayout>
@@ -13,7 +32,7 @@ const HomeScreen = () => {
         data={motorcycles}
         keyExtractor={(item) => item.id!.toString()}
         renderItem={({ item }) => (
-          <Card>
+          <Card onPress={() => router.push(`/detail/${item.id}`)}>
             <ItemList {...item}></ItemList>
           </Card>
         )}
