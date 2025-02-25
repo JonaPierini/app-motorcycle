@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { View, Text, Modal, StyleSheet, Button } from "react-native";
 
 export type PropsCustomModal = {

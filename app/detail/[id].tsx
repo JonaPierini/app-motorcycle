@@ -52,7 +52,12 @@ const DetailScreen = () => {
         }}
       />
       {motorcycle?.coordenadas && (
-        <Map coordenadas={motorcycle.coordenadas}></Map>
+        <Map
+          initialLocation={{
+            latitude: motorcycle.coordenadas.latitud,
+            longitude: motorcycle.coordenadas.longitud,
+          }}
+        ></Map>
       )}
       <View style={styles.footer}>
         <CustomButton

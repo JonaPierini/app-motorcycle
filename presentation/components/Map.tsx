@@ -5,23 +5,33 @@ import MapView, { Marker } from "react-native-maps";
 
 export type PropsMotorcycles = Partial<Motorcycles>;
 
-export const Map = ({ coordenadas }: PropsMotorcycles) => {
+export interface LatLng {
+  latitude: number;
+  longitude: number;
+}
+interface Props {
+  initialLocation: LatLng;
+  showUserLocation?: boolean;
+}
+
+export const Map = ({ initialLocation, showUserLocation = true }: Props) => {
   return (
     <>
-      {coordenadas && (
+      {initialLocation && (
         <MapView
           style={styles.map}
+          showsUserLocation={showUserLocation}
           initialRegion={{
-            latitude: coordenadas.latitud,
-            longitude: coordenadas.longitud,
-            latitudeDelta: 0.05,
-            longitudeDelta: 0.05,
+            latitude: initialLocation.latitude,
+            longitude: initialLocation.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
           }}
         >
           <Marker
             coordinate={{
-              latitude: coordenadas.latitud,
-              longitude: coordenadas.longitud,
+              latitude: initialLocation.latitude,
+              longitude: initialLocation.longitude,
             }}
             title="Ubicación de la moto"
             description="Aquí está tu moto"

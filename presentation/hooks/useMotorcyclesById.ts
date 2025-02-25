@@ -1,6 +1,6 @@
 import { getMotorcyclesById } from "@/services/actions/getMotorcyclesById";
 import { Motorcycles } from "@/types/motorcycles";
-import { useState, useRef, useCallback } from "react";
+import { useState, useCallback } from "react";
 
 export const useMotorcycleById = () => {
   const [motorcycle, setMotorcycle] = useState<Motorcycles>();
