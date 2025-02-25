@@ -1,5 +1,4 @@
 import React from "react";
-import { Motorcycles } from "@/types/motorcycles";
 import { StyleSheet } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 

@@ -1,7 +1,6 @@
 import { CustomButton } from "@/presentation/components/CustomButton";
 import { CustomModal } from "@/presentation/components/CustomModal";
 import { Map } from "@/presentation/components/Map";
-import { ScreenLayout } from "@/presentation/components/ScreenLayout";
 import { useMotorcycleById } from "@/presentation/hooks/useMotorcyclesById";
 import { globalStyles } from "@/presentation/styles/globa-styles";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
@@ -39,12 +38,6 @@ const DetailScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Stack.Screen
-        options={{
-          title: "Detail",
-          headerBackTitle: "Back",
-        }}
-      />
       {motorcycle?.coordenadas && (
         <Map
           initialLocation={{

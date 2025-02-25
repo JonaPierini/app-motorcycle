@@ -1,13 +1,13 @@
 import { getMotorcyclesById } from "@/services/actions/getMotorcyclesById";
 import { Motorcycles } from "@/types/motorcycles";
-import { useState, useCallback } from "react";
+import { useState } from "react";
 
 export const useMotorcycleById = () => {
   const [motorcycle, setMotorcycle] = useState<Motorcycles>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const getDataMotorcycleById = useCallback(async (id: string) => {
+  const getDataMotorcycleById = async (id: string) => {
     try {
       setLoading(true);
       const data = await getMotorcyclesById(id);
@@ -17,7 +17,7 @@ export const useMotorcycleById = () => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  };
 
   return { motorcycle, getDataMotorcycleById, loading, error };
 };
