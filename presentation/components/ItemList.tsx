@@ -2,7 +2,7 @@ import React from "react";
 import { Text } from "react-native";
 import { Motorcycles } from "@/types/motorcycles";
 
-export type PropsMotorcycles = Partial<Motorcycles & { showDetails?: boolean }>;
+export type PropsMotorcycles = Partial<Motorcycles>;
 
 export const ItemList = ({ id, modelo }: PropsMotorcycles) => {
   return (

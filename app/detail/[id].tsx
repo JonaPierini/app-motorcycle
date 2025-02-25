@@ -1,3 +1,4 @@
+import { Map } from "@/presentation/components/Map";
 import { useMotorcycleById } from "@/presentation/hooks/useMotorcyclesById";
 import { globalStyles } from "@/presentation/styles/globa-styles";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
@@ -11,7 +12,6 @@ import {
   Text,
   View,
 } from "react-native";
-import MapView from "react-native-maps";
 
 const DetailScreen = () => {
   const { motorcycle, getDataMotorcycleById, loading, error } =
@@ -56,15 +56,7 @@ const DetailScreen = () => {
         }}
       />
       {motorcycle?.coordenadas && (
-        <MapView
-          style={styles.map}
-          initialRegion={{
-            latitude: motorcycle.coordenadas.latitud,
-            longitude: motorcycle.coordenadas.longitud,
-            latitudeDelta: 0.5,
-            longitudeDelta: 0.5,
-          }}
-        />
+        <Map coordenadas={motorcycle.coordenadas}></Map>
       )}
       <View style={{ height: 100, backgroundColor: "tomato" }}>
         <Button title="Volver" onPress={() => router.push("/home")} />
@@ -104,9 +96,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  map: {
-    flex: 1,
-  },
+
   modalContainer: {
     flex: 1,
     justifyContent: "center",
