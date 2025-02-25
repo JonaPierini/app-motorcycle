@@ -6,13 +6,7 @@ import { useMotorcycleById } from "@/presentation/hooks/useMotorcyclesById";
 import { globalStyles } from "@/presentation/styles/globa-styles";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
-import {
-  ActivityIndicator,
-  Button,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 
 const DetailScreen = () => {
   const { motorcycle, getDataMotorcycleById, loading, error } =

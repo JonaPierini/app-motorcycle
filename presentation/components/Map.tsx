@@ -3,9 +3,7 @@ import { Motorcycles } from "@/types/motorcycles";
 import { StyleSheet } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 
-export type PropsMotorcycles = Partial<Motorcycles>;
-
-export interface LatLng {
+interface LatLng {
   latitude: number;
   longitude: number;
 }
