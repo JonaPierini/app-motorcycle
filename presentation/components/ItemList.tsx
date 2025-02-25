@@ -4,10 +4,10 @@ import { Motorcycles } from "@/types/motorcycles";
 
 export type PropsMotorcycles = Partial<Motorcycles & { showDetails?: boolean }>;
 
-export const ItemList = ({ id, nombre }: PropsMotorcycles) => {
+export const ItemList = ({ id, modelo }: PropsMotorcycles) => {
   return (
     <Text style={{ textAlign: "center" }}>
-      {nombre} - {id}
+      {modelo} - {id}
     </Text>
   );
 };

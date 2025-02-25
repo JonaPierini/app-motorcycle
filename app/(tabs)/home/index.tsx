@@ -21,7 +21,7 @@ const HomeScreen = () => {
   if (error) {
     return (
       <View style={globalStyles.container}>
-        <Text>Error al cargar los detalles</Text>;
+        <Text>Error al cargar</Text>;
       </View>
     );
   }
